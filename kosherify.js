@@ -10,7 +10,9 @@ let conversion = {
     "bells": "accordions",
     "bell": "accordion",
     "stars": "Chanuka candles",
-    "star": "Chanuka candle"
+    "star": "Chanuka candle",
+    "magic": "kabbalah",
+    "magical": "kabbalistic"
 }
 
 // Optimisations so we don't do this every time the function is called
