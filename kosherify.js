@@ -11,7 +11,9 @@ let conversion = {
 }
 
 // Optimisations so we don't do this every time the function is called
-conversion = Object.entries(conversion).map(([from, to]) => [new RegExp(`\\b${from}\\b`, 'ig'), to]);
+conversion = Object.entries(conversion).map(([from, to]) => [new RegExp(`\\b${from}${/\w$/.test(from) ? '\\b' : ''}`, 'ig'), to]);
+// Add stars as a special case, not requiring word boundaries
+conversion.push(['*', '🕎'])
 
 /**
  * 
@@ -32,7 +34,7 @@ function fix(text) {
     return conversion.reduce(
         (txt, [from, to]) => txt.replaceAll(from, (match) => match[0] === match[0].toUpperCase() ? `${to[0].toUpperCase()}${to.slice(1)}` : to), 
         text
-    );
+    )
 }
 
 processNode(document);
