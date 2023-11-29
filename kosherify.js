@@ -6,6 +6,9 @@ let conversion = {
     "elves'": "chassidim's",
     "elves": "chassidim",
     "reindeer": "Moshiach's donkey",
+    "sleigh": "wagon",
+    "bells": "accordions",
+    "bell": "accordion",
     "stars": "Chanuka candles",
     "star": "Chanuka candle"
 }
