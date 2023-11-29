@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+    "name": "Jewish AOC",
+    "version": "1.0",
+    "description": "Replace certain key words in Advent of Code to make it Jewish-friendly",
+    "content_scripts": [
+        {
+            "matches": ["*://adventofcode.com/*"],
+            "js": ["kosherify.js"],
+            "run_at": "document_end"
+        }
+    ]
+}
