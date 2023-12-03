@@ -30,6 +30,8 @@ conversion.push(['*', '🕎']); // I tried 🕯️ but it didn't look good
 function processNode(node) {
     if (node instanceof Text)
         node.textContent = fix(node.textContent);
+    else if (node instanceof HTMLElement && node.tagName === 'CODE')
+        return;
     else
         node.childNodes.forEach(processNode);
 }
