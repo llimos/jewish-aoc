@@ -21,7 +21,7 @@ let conversion = {
 // Optimisations so we don't do this every time the function is called
 conversion = Object.entries(conversion).map(([from, to]) => [new RegExp(`\\b${from}${/\w$/.test(from) ? '\\b' : ''}`, 'ig'), to]);
 // Add stars as a special case, not requiring word boundaries
-conversion.push(['*', '🕎']); // I tried 🕯️ but it didn't look good
+conversion.push(['*', '🕯']);
 
 /**
  * 
