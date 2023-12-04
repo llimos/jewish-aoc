@@ -6,6 +6,6 @@ Enjoy doing Advent of Code but it's the wrong religion for you? No more! Install
 
 Functionally, all this does is switch out words on the page for different words. No data is sent or received from any server.
 
-Install it for *Firefox* here: https://addons.mozilla.org/en-GB/firefox/addon/jewish-advent-of-code/
+Install it for **Firefox** here: https://addons.mozilla.org/en-GB/firefox/addon/jewish-advent-of-code/
 
-I will happily publish it for Chrome or Safari if someone sponsors the fee.
+I will happily publish it for Chrome or Safari if someone sponsors the fee. In the meantime, you can [sideload it as a folder](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked).
