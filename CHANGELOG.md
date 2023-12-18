@@ -1,3 +1,7 @@
+# 1.3
+
+* Add a toggle button
+
 # 1.2
 
 * Change stars to Unicode candles instead of using emoji
