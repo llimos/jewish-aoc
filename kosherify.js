@@ -23,24 +23,27 @@ conversion = Object.entries(conversion).map(([from, to]) => [new RegExp(`\\b${fr
 // Add stars as a special case, not requiring word boundaries
 conversion.push(['*', '🕯']);
 
+// Store all the replacements we've done, so we can toggle
 /**
- * 
- * @param {Node} node 
+ * @type {{node: Text, orig: string, changed: string}[]}
  */
-function processNode(node) {
-    if (node instanceof Text)
-        node.textContent = fix(node.textContent);
+const replacements = [];
+
+function processNode(/**@type{Node}*/ node) {
+    if (node instanceof Text) {
+        const orig = node.textContent, 
+            changed = fix(node.textContent);
+        if (changed !== orig)
+            replacements.push({node, orig, changed});
+    }
     else if (node instanceof HTMLElement && node.tagName === 'CODE')
         return;
     else
         node.childNodes.forEach(processNode);
 }
 
-/**
- * 
- * @param {string} text 
- */
-function fix(text) {
+
+function fix(/**@type{string}*/ text) {
     return conversion.reduce(
         (txt, [from, to]) => txt.replaceAll(from, (match) => match[0] === match[0].toUpperCase() ? `${to[0].toUpperCase()}${to.slice(1)}` : to), 
         text
@@ -48,3 +51,36 @@ function fix(text) {
 }
 
 processNode(document);
+
+/** @type{HTMLButtonElement} */
+let button;
+
+function kosherify() {
+    replacements.forEach(({node, changed}) => node.textContent = changed);
+    document.body.classList.add('kosher');
+    button.title = 'Treifify';
+}
+
+function treifify() {
+    replacements.forEach(({node, orig}) => node.textContent = orig);
+    document.body.classList.remove('kosher');
+    button.title = 'Kosherify';
+}
+
+function toggle() {
+    if (document.body.classList.contains('kosher'))
+        treifify();
+    else
+        kosherify();
+}
+
+if (replacements.length) {
+    // Create toggle button
+    button = document.createElement('button');
+    button.id = 'kosherify_toggle';
+    button.textContent = '🕎'
+    document.body.appendChild(button);
+    button.addEventListener('click', toggle);
+
+    kosherify();
+}

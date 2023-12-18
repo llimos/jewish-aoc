@@ -8,6 +8,7 @@
             "matches": ["*://adventofcode.com/*"],
             "exclude_globs": ["*/input"],
             "js": ["kosherify.js"],
+            "css": ["button.css"],
             "run_at": "document_end"
         }
     ]

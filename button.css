@@ -1,0 +1,12 @@
+#kosherify_toggle {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    background-color: transparent;
+    border-radius: 25px;
+    font-size: 14pt;
+    filter: contrast(50%) brightness(170%);
+}
+.kosher #kosherify_toggle {
+    filter: none;
+}
