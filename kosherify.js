@@ -2,11 +2,13 @@ let conversion = {
     "Advent calendar": "Shul Calendar",
     "Advent": "Shul Calendar",
     "Christmas": "Chanuka",
+    "December": "Kislev",
     "Santa": "The Rebbe",
     "an elf": "a Chossid",
     "elf": "chossid",
     "elves'": "chassidim's",
     "elves": "chassidim",
+    "elvish": "chassidish",
     "reindeer": "Moshiach's donkey", // Unfortunately we can't distinguish singular and plural
     "sleigh": "wagon",
     "bells": "accordions",
