@@ -1,3 +1,7 @@
+# 1.5
+
+* Fix ascii art on calendar page
+
 # 1.4
 
 * A couple more replacements for AoC 2024
