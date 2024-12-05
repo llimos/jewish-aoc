@@ -40,6 +40,9 @@ function processNode(/**@type{Node}*/ node) {
     }
     else if (node instanceof HTMLElement && node.tagName === 'CODE')
         return;
+    else if (node instanceof HTMLElement && node.classList.contains('calendar'))
+        // Only replace the stars at the end
+        node.querySelectorAll('.calendar-mark-complete,.calendar-mark-verycomplete').forEach(processNode);
     else
         node.childNodes.forEach(processNode);
 }
