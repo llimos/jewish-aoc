@@ -1,3 +1,29 @@
+const asciiArt = 
+`                          (                         
+  )     (     )     (    ()    (     (     )     (  
+ (_)   (_)   (_)   (_)   ||   (_)   (_)   (_)   (_) 
+ |~|   |~|   |~|   |~|   ||   |~|   |~|   |~|   |~| 
+ |:|   |:|   |:|   |:|   ||   |:|   |:|   |:|   |:| 
+ |:|   |:|   |:|   |:|   ||   |:|   |:|   |:|   |:| 
+ |:|   |:|   |:|   |:|   ||   |:|   |:|   |:|   |:| 
+ |:|   |:|   |:|   |:|  <++>  |:|   |:|   |:|   |:| 
+<+++> <+++> <+++> <+++>  }{  <+++> <+++> <+++> <+++>
+ }~{   }~{   }~{   }~{   {}   }~{   }~{   }~{   }~{ 
+ {+}   {+}   {+}   {+}   {}   {+}   {+}   {+}   {+} 
+  {}    {}     {}    {}  {}  {}    {}     {}    {}  
+   '{}   '{}    '{}   {} {} {}   {}'    {}'   {}'   
+      '{}   '{}   '{}  {}{}{}  {}'   {}'   {}'    
+        ''{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}''        
+              '{}{}{}{}__/\__{}{}{}{}'              
+                       \/  \/                       
+                       /\__/\                       
+                       ~~\/~~                       
+                         {}                           
+                         {}                           
+                      __<++>__                        
+                  ___{}{}\/{}{}___
+               __<++++++++++++++++>__
+              {}{}{}{}{}{/\}{}{}{}{}{}`.split('\n');
 let conversion = {
     "Advent calendar": "Shul Calendar",
     "Advent": "Shul Calendar",
@@ -61,6 +87,7 @@ function kosherify() {
     replacements.forEach(({node, changed}) => node.textContent = changed);
     document.body.classList.add('kosher');
     button.title = 'Treifify';
+    replaceAsciiArt();
 }
 
 function treifify() {
@@ -85,4 +112,25 @@ if (replacements.length) {
     button.addEventListener('click', toggle);
 
     kosherify();
+}
+
+function replaceAsciiArt() {
+    document.querySelectorAll('.calendar-verycomplete').forEach((el, i)=> {
+        el.querySelectorAll('span').forEach((child) => {
+            if (child.classList[0]?.includes('calendar-color')) {
+                el.removeChild(child);
+            }
+            // asciiArt[i].forEach((char, j) => {
+                // });
+                
+                
+            });
+            el.innerHTML = el.innerHTML.replace(/\s{2,}/g, '');
+            const span = document.createElement('span');
+            span.textContent = asciiArt[i];
+            span.classList.add('calendar-color-w');
+            span.style.display = 'inline-block';
+            span.style.width = ' 30%';
+            el.prepend(span);
+    });
 }
