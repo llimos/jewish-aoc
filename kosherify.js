@@ -1,3 +1,29 @@
+const asciiArt = 
+`                          (                         
+  )     (     )     (    ()    (     (     )     (  
+ (_)   (_)   (_)   (_)   ||   (_)   (_)   (_)   (_) 
+ |~|   |~|   |~|   |~|   ||   |~|   |~|   |~|   |~| 
+ |:|   |:|   |:|   |:|   ||   |:|   |:|   |:|   |:| 
+ |:|   |:|   |:|   |:|   ||   |:|   |:|   |:|   |:| 
+ |:|   |:|   |:|   |:|   ||   |:|   |:|   |:|   |:| 
+ |:|   |:|   |:|   |:|  <++>  |:|   |:|   |:|   |:| 
+<+++> <+++> <+++> <+++>  }{  <+++> <+++> <+++> <+++>
+ }~{   }~{   }~{   }~{   {}   }~{   }~{   }~{   }~{ 
+ {+}   {+}   {+}   {+}   {}   {+}   {+}   {+}   {+} 
+  {}    {}     {}    {}  {}  {}    {}     {}    {}  
+   '{}   '{}    '{}   {} {} {}   {}'    {}'   {}'   
+      '{}   '{}   '{}  {}{}{}  {}'   {}'   {}'    
+        ''{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}''        
+              '{}{}{}{}__/\\__{}{}{}{}'              
+                       \\/  \\/                       
+                       /\\__/\\                       
+                       ~~\\/~~                       
+                         {}                           
+                         {}                           
+                      __<++>__                        
+                  ___{}{}\\/{}{}___
+               __<++++++++++++++++>__
+              {}{}{}{}{}{/\\}{}{}{}{}{}`.split('\n');
 let conversion = {
     "Advent calendar": "Shul Calendar",
     "Advent": "Shul Calendar",
@@ -30,6 +56,7 @@ conversion.push(['*', '🕯']);
  * @type {{node: Text, orig: string, changed: string}[]}
  */
 const replacements = [];
+let treifAsciiArt = [];
 
 function processNode(/**@type{Node}*/ node) {
     if (node instanceof Text) {
@@ -64,12 +91,14 @@ function kosherify() {
     replacements.forEach(({node, changed}) => node.textContent = changed);
     document.body.classList.add('kosher');
     button.title = 'Treifify';
+    replaceAsciiArt();
 }
 
 function treifify() {
     replacements.forEach(({node, orig}) => node.textContent = orig);
     document.body.classList.remove('kosher');
     button.title = 'Kosherify';
+    treififyAsciiArt();
 }
 
 function toggle() {
@@ -88,4 +117,32 @@ if (replacements.length) {
     button.addEventListener('click', toggle);
 
     kosherify();
+}
+
+function replaceAsciiArt() {
+    document.querySelectorAll('.calendar-verycomplete').forEach((el, i)=> {
+        treifAsciiArt.push({el, children: el.innerHTML});
+        el.querySelectorAll('span').forEach((child) => {
+            if (child.classList[0]?.includes('calendar-color')) {
+                el.removeChild(child);
+            }
+                
+                
+            });
+            el.innerHTML = el.innerHTML.replace(/\s{2,}/g, '');
+            const span = document.createElement('span');
+            span.textContent = asciiArt[i];
+            span.classList.add('calendar-color-w');
+            span.style.display = 'inline-block';
+            span.style.width = '30%';
+            el.prepend(span);
+    });
+
+}
+
+function treififyAsciiArt() {
+    treifAsciiArt.forEach(({el, children}) => {
+        el.innerHTML = children;
+    });
+    treifAsciiArt = [];
 }
