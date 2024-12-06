@@ -14,16 +14,16 @@ const asciiArt =
    '{}   '{}    '{}   {} {} {}   {}'    {}'   {}'   
       '{}   '{}   '{}  {}{}{}  {}'   {}'   {}'    
         ''{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}''        
-              '{}{}{}{}__/\__{}{}{}{}'              
-                       \/  \/                       
-                       /\__/\                       
-                       ~~\/~~                       
+              '{}{}{}{}__/\\__{}{}{}{}'              
+                       \\/  \\/                       
+                       /\\__/\\                       
+                       ~~\\/~~                       
                          {}                           
                          {}                           
                       __<++>__                        
-                  ___{}{}\/{}{}___
+                  ___{}{}\\/{}{}___
                __<++++++++++++++++>__
-              {}{}{}{}{}{/\}{}{}{}{}{}`.split('\n');
+              {}{}{}{}{}{/\\}{}{}{}{}{}`.split('\n');
 let conversion = {
     "Advent calendar": "Shul Calendar",
     "Advent": "Shul Calendar",
@@ -131,7 +131,7 @@ function replaceAsciiArt() {
             span.textContent = asciiArt[i];
             span.classList.add('calendar-color-w');
             span.style.display = 'inline-block';
-            span.style.width = ' 30%';
+            span.style.width = '30%';
             el.prepend(span);
     });
 }
