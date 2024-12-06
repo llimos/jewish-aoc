@@ -88,7 +88,6 @@ function kosherify() {
     document.body.classList.add('kosher');
     button.title = 'Treifify';
     replaceAsciiArt();
-    replaceAsciiArt();
 }
 
 function treifify() {
