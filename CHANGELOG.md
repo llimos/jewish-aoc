@@ -1,3 +1,7 @@
+# 1.6
+
+* Handle things from the wrong time of year
+
 # 1.5
 
 * Fix ascii art on calendar page

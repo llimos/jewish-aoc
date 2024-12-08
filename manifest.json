@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Jewish AOC",
-    "version": "1.5",
+    "version": "1.6",
     "description": "Replace certain words in Advent of Code to make it Jewish-friendly",
     "content_scripts": [
         {
