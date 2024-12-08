@@ -3,6 +3,8 @@ let conversion = {
     "Advent": "Shul Calendar",
     "Christmas": "Chanuka",
     "December": "Kislev",
+    "Easter Bunny": "Magic Matzo Ball",
+    "Easter": "Pesach",
     "Santa": "The Rebbe",
     "an elf": "a Chossid",
     "elf": "chossid",
