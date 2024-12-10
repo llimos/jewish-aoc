@@ -1,8 +1,12 @@
 {
-    "manifest_version": 2,
-    "name": "Jewish AOC",
-    "version": "1.6",
+    "manifest_version": 3,
+    "name": "Jewish Advent of Code",
+    "version": "2.0",
     "description": "Replace certain words in Advent of Code to make it Jewish-friendly",
+    "icons": {
+        "48": "jaoc48.png",
+        "128": "jaoc128.png"
+    },
     "content_scripts": [
         {
             "matches": ["*://adventofcode.com/*"],
@@ -10,6 +14,12 @@
             "js": ["kosherify.js"],
             "css": ["button.css"],
             "run_at": "document_end"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["jaoc128.png"],
+            "matches": ["*://adventofcode.com/*"]
         }
     ]
 }
