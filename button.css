@@ -2,9 +2,11 @@
     position: fixed;
     right: 10px;
     top: 10px;
-    background-color: transparent;
-    border-radius: 25px;
-    font-size: 14pt;
+    height: 40px;
+    width: 40px;
+    background-size: cover;
+    border-radius: 18px;
+    z-index: 100;
     filter: contrast(50%) brightness(170%);
 }
 .kosher #kosherify_toggle {

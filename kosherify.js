@@ -85,7 +85,8 @@ if (replacements.length) {
     // Create toggle button
     button = document.createElement('button');
     button.id = 'kosherify_toggle';
-    button.textContent = '🕎'
+    // We can't do this in CSS because Chrome doesn't find it
+    button.style.backgroundImage = `url(${(globalThis.browser??globalThis.chrome).runtime.getURL('jaoc128.png')})`;
     document.body.appendChild(button);
     button.addEventListener('click', toggle);
 
