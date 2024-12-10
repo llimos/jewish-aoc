@@ -5,6 +5,7 @@ let conversion = {
     "December": "Kislev",
     "Easter Bunny": "Magic Matzo Ball",
     "Easter": "Pesach",
+    "North Pole": "Shtetl",
     "Santa": "The Rebbe",
     "an elf": "a Chossid",
     "elf": "chossid",
