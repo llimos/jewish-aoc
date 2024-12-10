@@ -7,6 +7,11 @@
         "48": "jaoc48.png",
         "128": "jaoc128.png"
     },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{3c96fd78-cd44-424e-a68a-fce490ef3ce2}"
+        }
+    },
     "content_scripts": [
         {
             "matches": ["*://adventofcode.com/*"],
